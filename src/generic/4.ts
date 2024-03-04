@@ -1,23 +1,13 @@
-// Інтерфейс для властивостей компоненту
-interface ComponentProps {
+interface Props {
   title: string;
 }
 
-// Клас компонента з використанням generics
-class Component<T extends ComponentProps> {
+class Component<T> {
   constructor(public props: T) {}
 }
 
-// Клас сторінки, що успадковує компонент
-class Page extends Component<ComponentProps> {
+class Page extends Component<Props> {
   pageInfo() {
     console.log(this.props.title);
   }
 }
-
-// Використання
-const pageProps: ComponentProps = { title: 'My Page' };
-const page = new Page(pageProps);
-page.pageInfo();
-
-export {};
